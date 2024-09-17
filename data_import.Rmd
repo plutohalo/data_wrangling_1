@@ -1,0 +1,44 @@
+---
+title: "data_import"
+author: "yx2857"
+date: "2024-09-17"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+#look at the data
+
+
+```{r cars}
+summary(cars)
+```
+
+Using relative path.  
+
+```{r read_data, echo=FALSE}
+pups_df <- read.csv("data/FAS_pups.csv")
+
+pups_df <-  janitor::clean_names(pups_df)
+
+pups_df
+```
+
+
+## look at the read_csv options
+
+```{r}
+litters_df <- read_csv("data/FAS_litters.csv", 
+                       
+                       na= c("",".", "NA", "N/A", "na", "n/a", "NULL", "null", "NaN", "nan")
+)
+
+
+
+```
+
+
+## ever use read.csv or using "$" in code
